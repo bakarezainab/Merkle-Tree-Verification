@@ -15,15 +15,9 @@ const SHA256 = require('crypto-js/sha256')
 
 	const tree = new MerkleTree(leaves, SHA256)
 	const root = tree.getRoot().toString('hex')
-	const leaf = SHA256('0x8aeBF766fC6b1199d85C8257c847A1D98618121A')
+	const leaf = SHA256('0x239393A9F23811Ce37BB3b5175f280Fbcd51EA6B')
 	const proof = tree.getProof(leaf)
 	console.log(tree.verify(proof, leaf, root))
 
-    const isValid = tree.verify(proof, leaf, root);
-    if (isValid) {
-        console.log ("The Address is Valid")
-    }
-
-    else (isValid) {
-        console.log ("The Address is Invalid")
-    }
+    // const isValid = merkleTree.verify(proof, leaf, merkleTree.getRoot()); // Verify the proof
+// console.log("Verification Result for '0x239393A9F23811Ce37BB3b5175f280Fbcd51EA6B':", isValid); // logs the results and shows if the address is from the tree. Returns yes if valid
